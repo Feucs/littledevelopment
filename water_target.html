@@ -90,7 +90,7 @@ body {
     <form action="/action_page.php" class="center">
         <input style="margin-top:6%; margin-bottom: 20%;" type="text" id="target" name="target" placeholder="Daily Target ..."><br>
     
-        <button style="width:100%; margin-right: 5px;" type="button" class="btn btn-info">EDIT</button>
+       
         <button id="submitButton" style="width:100%; margin-top: 8px;" type="button" class="btn btn-success">SUBMIT</button>
     </form>
 </div>
@@ -105,8 +105,6 @@ body {
 
 <script type="text/javascript">
     document.getElementById("submitButton").onclick = function () {
-        location.href = "content-water.html";
-	    
 	drinktarget=document.getElementById("target").value;
       	window.AppInventor.setWebViewString(drinktarget);
     };
