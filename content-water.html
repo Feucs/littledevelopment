@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <title>Water Drinking Record</title>
@@ -44,42 +45,63 @@
 </head>
 <!-- Page Content -->
 <body class="p-3 m-3">
-  <nav class="navbar navbar-light bg-light m-0 p-0">
-  <a class="navbar-brand" href="#">
-    <img src="https://i.pinimg.com/originals/e9/c0/8d/e9c08d810eaf2a5601dfec188438f473.gif" width="58" height="45" class="d-inline-block align-top" alt="">
-    <span class="navbar-text">Health Tracking System</span>
-    <div id="pot">
-  <img src="https://media1.giphy.com/media/hFVrwYJaIz0uk/giphy.gif?cid=790b7611b53c2f088d42e7642640814c8a5e613bc409ef11&rid=giphy.gif&ct=s" width=50px height=40px>
- </div>
-  </a>
-</nav>
-<br/>
+  <br class="p-3 m-3">
+    <nav class="navbar navbar-light bg-light m-0 p-0">
+      <a class="navbar-brand" href="#">
+        <img src="https://i.pinimg.com/originals/e9/c0/8d/e9c08d810eaf2a5601dfec188438f473.gif" width="58" height="45" class="d-inline-block align-top" alt="">
+        <span class="navbar-text">Health Tracking System</span>
+        <div id="pot">
+          <img src="https://media1.giphy.com/media/hFVrwYJaIz0uk/giphy.gif?cid=790b7611b53c2f088d42e7642640814c8a5e613bc409ef11&rid=giphy.gif&ct=s" width=50px height=40px>
+        </div>
+      </a>
+    </nav>
+  <br/>
     <div class="w3-teal">
         <div class="w3-container">
         <h1>My Target</h1>
         </div>
     </div>
   
-  <br></br>
-  <div class="progress">
-    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
-        <span class="my-centered">75% Complete</span>
+  <p></p>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+          <span class="my-centered">75% Complete</span>
+      </div>
     </div>
-  </div>
 
-   <button style="font-size: 0.8rem;" id="btn1" class="btn btn-primary">Add Water</button>
-   <button style="font-size: 0.8rem;" id="btn2" class="btn btn-primary">Set Water</button>
-  
-  <p>History</p>
+    <p></p>
 
+    <button style="font-size: 0.8rem;" id="btn1" class="btn btn-primary">Add Water</button>
+    <button style="font-size: 0.8rem;" id="btn2" class="btn btn-primary">Set Water</button>
 
+    <!--history-->
+    <div class="w3-teal">
+      <div class="w3-container">
+      <h1>My History</h1>
+      </div>
+    </div>
 
+    <nav class="navbar navbar-light bg-light m-0 p-0">
+      <a class="navbar-brand" href="#">
+        <img src="https://www.shareicon.net/data/512x512/2016/08/18/810148_drink_512x512.png" width="32" height="30" class="m-2 ml-3 d-inline-block align-top" alt="">
+        <span class="navbar-text">Latest Drinks</span>
+      </a>
+    </nav>
 
+    <div class="latesthistory">
+    </div>
 
+  <nav class="navbar navbar-light bg-light m-0 p-0">
+    <a class="navbar-brand" href="#">
+      <img src="https://www.nicepng.com/png/detail/301-3019331_history-comments-order-history-icon-png.png" width="28" height="30" class="m-2 ml-3 d-inline-block align-top" alt="">
+      <span class="ml-1 navbar-text">Drinks History</span>
+    </a>
+  </nav>
+
+<div class="otherhistory">
+</div>
 
 </body>
-</html>
-
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -87,16 +109,140 @@
 
 <script>
   $(document).ready(function(){
-  $("#btn1").click(function(){
-    getdata='Add Water';
-     window.AppInventor.setWebViewString(getdata);
-});
+    $("#btn1").click(function(){
+      getdata='Add Water';
+      window.AppInventor.setWebViewString(getdata);
+      });
+
     $("#btn2").click(function(){
-    getdata='Set Water';
-     window.AppInventor.setWebViewString(getdata);
- 
-});
+      getdata='Set Water';
+      window.AppInventor.setWebViewString(getdata);
+  
+      });
    
- 
 });
+
+//GetHistoryRecord
+var data=window.AppInventor.getWebViewString();
+  data=eval(data);
+  if(data.length < 1 || data[0].length < 1) {
+
+    html = '<div class="m-2 fontsizes"><p class="text-center"> No record found</p></div>';
+    jQuery(function($) {
+
+       $(".latesthistory").append(html);
+       $(".otherhistory").append(html);
+
+     }); 
+  }
+
+  else
+  {
+  for (var ix = 0; ix < data.length; ix++){
+  let i=ix
+
+    if(i==0)
+    {
+
+      jQuery(function($) {
+
+        html= '<div class="fontsizes mb-2">';
+        html+='<div class="row mt-3 ">';
+        html+='<div class="col text-center mycontent-left"><img id="clockicon"src="https://www.transparentpng.com/thumb/clock/amoxZ0-clock-clipart-hd.png" width="30" height="25"  alt=""></div>';
+        html+='<div class="col text-center mycontent-left"><img id="drinkicon"src="https://cdn-icons-png.flaticon.com/512/1651/1651824.png" width="30" height="28"  alt=""></div>';
+        html+='<div class="col text-center mycontent-left"><img id="targeticon"src="https://www.pngrepo.com/png/219421/512/target.png" width="30" height="25"  alt=""></div>';
+        html+='</div>';
+
+        html+='<div class="row">';
+        html+='<div class="col text-center mycontent-left">Time :</div>';
+        html+='<div class="col text-center mycontent-left">Volume Drink :</div>';
+        html+= '<div class="col text-center mycontent-left">Target :</div>';
+        html+='</div>';
+
+        html+='<div class="row ">';
+        date = data[i][0].split(" ");
+        html+='<div class="col text-center mycontent-left">'+date[0]+'<br/>'+date[1]+'</div>';
+        html+='<div class="col text-center mycontent-left">'+data[i][3]+' ml</div>';
+        html+='<div class="col text-center mycontent-left">'+data[i][4]+' ml</div>';
+        html+='</div>';
+
+        html+='<div class="row mb-2">';
+        //Target < Drink = Failed
+        if(data[i][4] < data[i][3] == "Failed")
+        {
+          html+='<div class="col">Category : <span class="ml-2 badge badge-secondary">Failed</span>';
+          html+='<div class="progress mt-1">';
+          html+= '<div class="progress-bar progress-bar-striped bg-secondary progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>';
+          html+='</div></div>';
+          html+= '</div>';
+        }
+        //Target >= Drink = Success
+        else if(data[i][4] >= data[i][3] == "Success")
+        {
+          html+='<div class="col">Category : <span class="ml-2 badge badge-success">Success</span>';
+          html+='<div class="progress mt-1">';
+          html+= '<div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>';
+          html+='</div></div>';
+          html+= '</div>';
+        }
+
+       html+='</div>';
+       $(".latesthistory").append(html);
+
+     }); 
+    }
+
+    else
+    {
+      jQuery(function($) {
+
+        html= '<div class="fontsizes">';
+        html+='<div class="row mt-3 ">';
+          html+='<div class="col text-center mycontent-left"><img id="clockicon"src="https://www.transparentpng.com/thumb/clock/amoxZ0-clock-clipart-hd.png" width="30" height="25"  alt=""></div>';
+        html+='<div class="col text-center mycontent-left"><img id="drinkicon"src="https://cdn-icons-png.flaticon.com/512/1651/1651824.png" width="30" height="28"  alt=""></div>';
+        html+='<div class="col text-center mycontent-left"><img id="targeticon"src="https://www.pngrepo.com/png/219421/512/target.png" width="30" height="25"  alt=""></div>';
+        html+='</div>';
+
+        html+='<div class="row">';
+        html+='<div class="col text-center mycontent-left">Time :</div>';
+        html+='<div class="col text-center mycontent-left">Volume Drink :</div>';
+        html+= '<div class="col text-center mycontent-left">Target :</div>';
+        html+='</div>'
+
+        html+='<div class="row ">';
+        date = data[i][0].split(" ");
+        html+='<div class="col text-center mycontent-left">'+date[0]+'<br/>'+date[1]+'</div>';
+        html+='<div class="col text-center mycontent-left">'+data[i][3]+' ml</div>';
+        html+='<div class="col text-center mycontent-left">'+data[i][4]+' ml</div>';
+        html+='</div>';
+
+        html+='<div class="row mb-2">'
+        //Target < Drink = Failed
+        if(data[i][4] < data[i][3] == "Failed")
+        {
+          html+='<div class="col">Category : <span class="ml-2 badge badge-secondary">Failed</span>';
+          html+='<div class="progress mt-1">';
+          html+= '<div class="progress-bar progress-bar-striped bg-secondary progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>';
+          html+='</div></div>';
+          html+= '</div>';
+        }
+        //Target >= Drink = Success
+        else if(data[i][4] >= data[i][3] == "Success")
+        {
+          html+='<div class="col">Category : <span class="ml-2 badge badge-success">Success</span>';
+          html+='<div class="progress mt-1">';
+          html+= '<div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>';
+          html+='</div></div>';
+          html+= '</div>';
+        }
+       
+       html+='</div>'
+       $(".otherhistory").append(html);
+
+     }); 
+
+    }
+    }
+  }
+
   </script>
