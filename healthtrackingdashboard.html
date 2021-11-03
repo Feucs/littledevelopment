@@ -53,8 +53,8 @@
   <img src="https://img.icons8.com/color/452/bmi.png" class="card-img-top" alt="BMI Icon">
   <div class="card-body">    
     <p style="font-size: 0.8rem;" class="card-text">Calculate Your BMI by using your weight and height now</p>
-    <button style="font-size: 0.8rem;" id="bmibutton" class="btn btn-primary">BMI Calculator</button>
-<button style="font-size: 0.8rem;" id="bmihistory" class="btn btn-primary">BMI History</button>
+    <button style="font-size: 0.8rem;" id="bmibutton" class="btn btn-primary m-2">BMI Calculator</button>
+<button style="font-size: 0.8rem;" id="bmihistory" class="btn btn-primary m-2">BMI History</button>
   </div>
 </div>
 <br/>
@@ -96,6 +96,12 @@
 });
     $("#bmichart").click(function(){
     getdata='chart';
+     window.AppInventor.setWebViewString(getdata);
+ 
+});
+
+    $("#bmihistory").click(function(){
+    getdata='bmihistory';
      window.AppInventor.setWebViewString(getdata);
  
 });
