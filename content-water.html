@@ -56,50 +56,42 @@
       </a>
     </nav>
   <br/>
-    <div class="w3-teal">
-        <div class="w3-container">
-        <h1>My Target</h1>
-        </div>
-    </div>
+    
+ <nav class="navbar navbar-light bg-light m-0 p-0">
+      <a class="navbar-brand" href="#">
+        <img src="https://www.shareicon.net/data/512x512/2016/08/18/810148_drink_512x512.png" width="32" height="30" class="m-2 ml-3 d-inline-block align-top" alt="">
+        <span class="navbar-text">My Target</span>
+      </a>
+    </nav>
   
-  <p></p>
-    <div class="progress">
-      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+    <div class="m-2 progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 33.5%">
           <span class="my-centered">75% Complete</span>
       </div>
     </div>
+    <p class="m-2 text-center" id="watertarget">Water Recorded : 2300 , My Target : 2500</p>
+    <p class="m-2 text-center"><button style="font-size: 0.8rem;" id="btn2" class="btn btn-primary">Set New Target</button></p>
 
-    <p></p>
-
-    <button style="font-size: 0.8rem;" id="btn1" class="btn btn-primary">Add Water</button>
-    <button style="font-size: 0.8rem;" id="btn2" class="btn btn-primary">Set Water</button>
-
+    
     <!--history-->
-    <div class="w3-teal">
-      <div class="w3-container">
-      <h1>My History</h1>
-      </div>
-    </div>
-
-    <nav class="navbar navbar-light bg-light m-0 p-0">
-      <a class="navbar-brand" href="#">
-        <img src="https://www.shareicon.net/data/512x512/2016/08/18/810148_drink_512x512.png" width="32" height="30" class="m-2 ml-3 d-inline-block align-top" alt="">
-        <span class="navbar-text">Latest Drinks</span>
-      </a>
-    </nav>
-
-    <div class="latesthistory">
-    </div>
-
-  <nav class="navbar navbar-light bg-light m-0 p-0">
+ <nav class="navbar navbar-light bg-light m-0 p-0">
     <a class="navbar-brand" href="#">
       <img src="https://www.nicepng.com/png/detail/301-3019331_history-comments-order-history-icon-png.png" width="28" height="30" class="m-2 ml-3 d-inline-block align-top" alt="">
       <span class="ml-1 navbar-text">Drinks History</span>
     </a>
   </nav>
-
+<table class="">
+<th><td>hi</td></th>
+<tr><td>test<td/></tr>
+<tr><td>test<td/></tr>
+<tr><td>test<td/></tr>
+<tr><td>test<td/></tr>
+</table>
 <div class="otherhistory">
 </div>
+
+<p class="text-center m-2"><button style="font-size: 0.8rem;" id="btn1" class="btn btn-primary">Add Water</button></p>
+
 
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -108,22 +100,14 @@
 </html>
 
 <script>
-var data=window.AppInventor.getWebViewString();
- data=eval(data);
+
 
   $(document).ready(function(){
-	 $("p").after("<b><h2>"+data[0]+"</h2></b>"+"<br/><b><h2>"+data[1]+"</h2></b>"+"<br/><b><h2>"+data[2][2][1]+"</h2></b>");
-
-    $("#btn1").click(function(){
-      getdata='Add Water';
-      window.AppInventor.setWebViewString(getdata);
-      });
-
-    $("#btn2").click(function(){
-      getdata='Set Water';
-      window.AppInventor.setWebViewString(getdata);
-  
-      });
+percentage=1100/5000*100;
+percentage=percentage+"%";
+$('.progress-bar').css("width", percentage);
+$('.progress-bar').text(percentage);
+	
    
 });
 
