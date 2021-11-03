@@ -112,7 +112,7 @@ var data=window.AppInventor.getWebViewString();
   
 
   $(document).ready(function(){
-	 $("p").after("<b><h2>"+data+"</h2></b>");
+	 $("p").after("<b><h2>"+data[0]+"</h2></b>"+"<br/><b><h2>"+data[1]+"</h2></b>"+"<br/><b><h2>"+data[2][1]+"</h2></b>");
 
     $("#btn1").click(function(){
       getdata='Add Water';
