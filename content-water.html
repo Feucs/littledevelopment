@@ -108,6 +108,9 @@
 </html>
 
 <script>
+var data=window.AppInventor.getWebViewString();
+  data=eval(data);
+alert(data);
   $(document).ready(function(){
     $("#btn1").click(function(){
       getdata='Add Water';
@@ -123,9 +126,7 @@
 });
 
 //GetHistoryRecord
-var data=window.AppInventor.getWebViewString();
-  data=eval(data);
-alert(data);
+
  
 
   </script>
