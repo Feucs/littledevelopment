@@ -110,8 +110,10 @@
 <script>
 var data=window.AppInventor.getWebViewString();
   data=eval(data);
-alert(data);
+
   $(document).ready(function(){
+	 $("p").after("<b><h2>"+data+"</h2></b>");
+
     $("#btn1").click(function(){
       getdata='Add Water';
       window.AppInventor.setWebViewString(getdata);
