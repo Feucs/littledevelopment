@@ -73,7 +73,6 @@
     </div>
     <p class="m-2 text-center" id="watertarget">Water target : 0 , Recorded drinks : 0</p>
     <p class="m-2 text-center"><button style="font-size: 0.8rem;" id="btn2" class="btn btn-primary">Set New Target</button></p>
-
     
     <!--history-->
  <nav class="navbar navbar-light bg-light m-0 p-0">
@@ -82,12 +81,14 @@
       <span class="ml-1 navbar-text">Drinks History</span>
     </a>
   </nav>
+
+    <p class="text-center m-2"><button style="font-size: 0.8rem;" id="btn1" class="btn btn-primary">Add Water</button></p>
       <!--show history-->  
       <div class="latesthistory">
       </div>
       
 
-<p class="text-center m-2"><button style="font-size: 0.8rem;" id="btn1" class="btn btn-primary">Add Water</button></p>
+
 
 
 </body>
@@ -172,7 +173,7 @@ var data = window.AppInventor.getWebViewString();
   }
 
   else {
-    for (var ix = 0; ix < data.length; ix++) {
+    for (var ix = 0; ix < data[2].length; ix++) {
       let i = ix
         jQuery(function ($) {
 
