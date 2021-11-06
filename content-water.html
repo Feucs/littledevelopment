@@ -112,14 +112,26 @@
     {  $('.progress-bar').css("width", percentage);
        $('.progress-bar').text(percentage);
     }
-    else
+    else if(percentage >0)
     {
       $('.progress-bar').css("width", percentage);
       $('.progress-bar').text(percentage);
     }
-    
-    target = 'Water target: ' + data[0] + ', Recorded drinks: ' + data[1];
+    else 
+    {
+      $('.progress-bar').css("width", 0%);
+      $('.progress-bar').text(0%);
+    }	
+    if(data[0]!='')
+    {
+      target = 'Water target: ' + data[0] + ', Recorded drinks: ' + data[1];
+      $('#watertarget').text(target);
+    }
+    else
+    {
+    target = 'Water target: ' + 0 + ', Recorded drinks: ' + data[1];
     $('#watertarget').text(target);
+    }
 
     $("#btn1").click(function () {
       getdata = 'Add Water';
