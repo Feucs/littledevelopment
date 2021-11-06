@@ -101,10 +101,17 @@
   data = eval(data);
 
   $(document).ready(function(){
-
+    percentage=0;
     //TotalDrink/Target*100
-    
-    percentage=data[1]/data[0]*100;
+    if(data[0]=='')
+    {
+       percentage=data[1]/data[0]*100;
+    }
+    else
+    {
+       percentage=data[1]/data[0]*100;
+    }
+ 
     percentage=percentage+"%";
 	 
     if(percentage>=100)
