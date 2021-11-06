@@ -112,19 +112,23 @@
        percentage=data[1]/data[0]*100;
     }
  
-    percentage=percentage+"%";
+    
 	 
     if(percentage>=100)
-    {  $('.progress-bar').css("width", percentage);
+    {
+      percentage=percentage+"%";
+       $('.progress-bar').css("width", percentage);
        $('.progress-bar').text(percentage);
     }
     else if(percentage >0)
     {
+      percentage=percentage+"%";
       $('.progress-bar').css("width", percentage);
       $('.progress-bar').text(percentage);
     }
     else 
     {
+      percentage=percentage+"%";
       $('.progress-bar').css("width", '0%');
       $('.progress-bar').text('0%');
     }	
