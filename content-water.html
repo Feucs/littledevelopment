@@ -85,8 +85,7 @@
       <!--show history-->  
       <div class="latesthistory">
       </div>
-      <div class="otherhistory">
-      </div>
+      
 
 <p class="text-center m-2"><button style="font-size: 0.8rem;" id="btn1" class="btn btn-primary">Add Water</button></p>
 
@@ -150,13 +149,12 @@
 var data = window.AppInventor.getWebViewString();
   data = eval(data);
 
-  if (data.length < 1 || data[0].length < 1) {
+  if (data.length < 1 || data[2].length < 1) {
 
     html = '<div class="m-2 fontsizes"><p class="text-center"> No record found</p></div>';
     jQuery(function ($) {
 
       $(".latesthistory").append(html);
-      $(".otherhistory").append(html);
 
     });
   }
