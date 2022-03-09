@@ -12,13 +12,9 @@
 
 }
 .container {
-display: flex;
-  flex-direction: column;
-  padding-top: 180px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
+position: relative;
+  overflow: hidden;
+  width: 100%;
 
 }
 .responsive-iframe {
@@ -29,7 +25,7 @@ display: flex;
   bottom: 0;
   right: 0;
   width: 98%;
-  height: 30%;
+  height: 40%;
   border: none;
 }
 
@@ -40,7 +36,7 @@ display: flex;
  
 <div class="container">
    
-  <iframe class="responsive-iframe"  style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1669124/charts/1?bgcolor=%23ffffff&color=%23d62020&days=1&dynamic=true&title=Water+Level&type=line&xaxis=Time&yaxis=Water+Level%28cm%29"></iframe>
+  <iframe class="responsive-iframe" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1669124/charts/1?bgcolor=%23ffffff&color=%23d62020&days=1&dynamic=true&title=Water+Level&type=line&xaxis=Time&yaxis=Water+Level%28cm%29"></iframe>
 </div>
 </body>
 </html>
