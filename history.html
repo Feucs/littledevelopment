@@ -6,16 +6,25 @@
   <style>
     body {
     background:url('https://feucs.github.io/littledevelopment/Picture1.gif') ;
-    background-size: 100%;
-    background-repeat: no-repeat;
-   background-position: center;
+    background-position: center center;
+
+/* Background image doesn't tile */
+background-repeat: no-repeat;
+
+/* Background image is fixed in the viewport so that it doesn't move when
+the content's height is greater than the image's height */
+background-attachment: fixed;
+
+/* This is what makes the background image rescale based
+on the container's size */
+background-size: cover;
 
 }
 .container {
   position: relative;
   width: 98%;
   overflow: hidden;
-  padding-top: 70%; /* 16:9 Aspect Ratio */
+  padding-top: 75%; /* 16:9 Aspect Ratio */
 }
 .responsive-iframe {
   position: absolute;
