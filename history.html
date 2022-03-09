@@ -21,6 +21,16 @@ display: flex;
   min-height: 100vh;
 
 }
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  border: none;
+}
 
    
   </style>
@@ -29,7 +39,7 @@ display: flex;
  
 <div class="container">
    
-  <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1669124/charts/1?bgcolor=%23ffffff&color=%23d62020&days=1&dynamic=true&title=Water+Level&type=line&xaxis=Time&yaxis=Water+Level%28cm%29"></iframe>>
+  <iframe class="responsive-iframe"  style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/1669124/charts/1?bgcolor=%23ffffff&color=%23d62020&days=1&dynamic=true&title=Water+Level&type=line&xaxis=Time&yaxis=Water+Level%28cm%29"></iframe>>
 </div>
 </body>
 </html>
